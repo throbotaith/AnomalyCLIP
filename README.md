@@ -102,6 +102,25 @@ bash test.sh
 bash train.sh
 ```
 
+### Run with Docker
+Build the image from the provided `Dockerfile`:
+
+```bash
+docker build -t anomalyclip .
+```
+
+Launch an interactive container (mount your dataset directory as needed):
+
+```bash
+docker run --gpus all -it -v /path/to/dataset:/data anomalyclip
+```
+
+Once inside the container you can run the usual scripts, e.g.
+
+```bash
+bash test.sh
+```
+
 
 ## Main results (We test all datasets by training once on MVTec AD. For MVTec AD, AnomalyCLIP is trained on VisA.)
 
