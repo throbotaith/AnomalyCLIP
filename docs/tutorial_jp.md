@@ -36,6 +36,7 @@ cd generate_dataset_json
 python SDD.py
 ```
 
+
 スクリプト実行後，データセット構造を記述した JSON ファイルが生成されます。このファイルを AnomalyCLIP が参照することで，各種データセットを正しく読み込むことができます。
 
 ## 3. 学習の実行
