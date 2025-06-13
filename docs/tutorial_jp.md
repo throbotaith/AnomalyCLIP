@@ -29,34 +29,6 @@ cd generate_dataset_json
 python mvtec.py
 ```
 
-スクリプト内では `root` 引数にデータセットを配置したディレクトリを指定します。
-例として，`/path/to/mvtec` にデータを置いた場合は次のように変更します。
-
-```python
-runner = MVTecSolver(root='/path/to/mvtec')
-```
-
-実行すると `<root>/meta.json` というファイルが生成されます。以下は一部抜粋した例です。
-
-```json
-{
-    "train": {
-        "bottle": [
-            {
-                "img_path": "bottle/train/good/000.png",
-                "mask_path": "",
-                "cls_name": "bottle",
-                "specie_name": "good",
-                "anomaly": 0
-            }
-        ]
-    },
-    "test": { ... }
-}
-```
-
-この `meta.json` をデータセットフォルダ直下に置くことで AnomalyCLIP が各画像のパスやアノテーションを読み取れるようになります。
-
 SDD のように異常カテゴリが 1 つのみのデータセットも同様です。
 
 ```bash
@@ -64,18 +36,6 @@ cd generate_dataset_json
 python SDD.py
 ```
 
-SDD データセットの場合のディレクトリ構成例を以下に示します。
-
-```
-SDD/
-├── electrical_commutators/
-│   └── test/
-│       ├── defect/
-│       │   └── kos01_Part5_0.png
-│       └── good/
-│           └── kos01_Part0_0.png
-└── meta.json
-```
 
 スクリプト実行後，データセット構造を記述した JSON ファイルが生成されます。このファイルを AnomalyCLIP が参照することで，各種データセットを正しく読み込むことができます。
 
